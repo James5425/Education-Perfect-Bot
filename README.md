@@ -1,6 +1,6 @@
 # Education Perfect Bot
 
-### This EP Bot is written in python with selenium and is currently designed for the reading section of EP and has only been tested on MacOS
+### This EP Bot is written in python with selenium and is currently designed for the Reading section of EP and has only been tested on MacOS
 
 ### If there are any problem please let me know or issue a pull request
 
