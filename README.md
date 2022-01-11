@@ -1,8 +1,8 @@
 # Education Perfect Bot
 
-### This EP Bot is written in python with selenium and is currently designed for the reading section of EP
+### This EP Bot is written in python with selenium and is currently designed for the reading section of EP and has only been tested on MacOS
 
-### I have modified the code recently so if there are any problem please let me know or issue a pull request
+### If there are any problem please let me know or issue a pull request
 
 ## Instructions:
 
@@ -19,3 +19,7 @@ After downloading and running the chromedriver if you get a pop up saying this c
 
 - Create a UI
 - Add support for Listening, Dictation, Writing and Speaking
+
+## Notes
+
+- If you would like to me to add a feature or you would like to help with this project feel free to reach out
