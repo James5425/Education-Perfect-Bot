@@ -7,13 +7,13 @@
 ## Instructions:
 
 - Clone this repository somewhere onto your computer
-- Download the correct Chromium driver for your computer from [here]: https://chromedriver.chromium.org/home
+- Download the correct Chromium driver for your computer from [here](https://chromedriver.chromium.org/home)
 - Enter the path to that download into the code in place of "ENTER THE PATH TO THR SELENIUM DRIVER DOWNLOAD FROM https://chromedriver.chromium.org/home"
 - Install all the moduel
 
 ## Know Issues
 
-After downloading and running the chromedriver if you get a pop up saying this could be dangerous or it won't run please follow the istructions on this website [src="https://dev.to/ruthmoog/dealing-with-error-chromedriver-cannot-be-opened-because-the-developer-cannot-be-verified-1897"][website]
+After downloading and running the chromedriver if you get a pop up saying this could be dangerous or it won't run please follow the istructions on this website [website](https://dev.to/ruthmoog/dealing-with-error-chromedriver-cannot-be-opened-because-the-developer-cannot-be-verified-1897)
 
 ## To Do:
 
