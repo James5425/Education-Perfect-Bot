@@ -7,7 +7,7 @@
 ## Instructions:
 
 - Clone this repository somewhere onto your computer
-- Download the correct Chromium driver for your computer from [<src="https://chromedriver.chromium.org/home" />][here]
+- Download the correct Chromium driver for your computer from [here]: https://chromedriver.chromium.org/home
 - Enter the path to that download into the code in place of "ENTER THE PATH TO THR SELENIUM DRIVER DOWNLOAD FROM https://chromedriver.chromium.org/home"
 - Install all the moduel
 
