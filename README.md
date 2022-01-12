@@ -18,7 +18,15 @@ After downloading and running the chromedriver if you get a pop up saying this c
 ## To Do:
 
 - Create a UI
-- Add support for Listening, Dictation, Writing and Speaking
+- Add support for Listening, Dictation and Speaking
+
+## Updates:
+
+##### 12/01/21:
+
+- Added support for Writing
+- Clean up the code a little bit
+- Fixed some bug
 
 ## Notes
 
