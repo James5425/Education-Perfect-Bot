@@ -11,14 +11,18 @@
 - Enter the path to that download into the code in place of "ENTER THE PATH TO THR SELENIUM DRIVER DOWNLOAD FROM https://chromedriver.chromium.org/home"
 - Install all the moduel
 
+<br></br>
 ## Know Issues
 
-After downloading and running the chromedriver if you get a pop up saying this could be dangerous or it won't run please follow the istructions on this website [website](https://dev.to/ruthmoog/dealing-with-error-chromedriver-cannot-be-opened-because-the-developer-cannot-be-verified-1897)
+- After downloading and running the chromedriver if you get a pop up saying this could be dangerous or it won't run please follow the istructions on this website [website](https://dev.to/ruthmoog/dealing-with-error-chromedriver-cannot-be-opened-because-the-developer-cannot-be-verified-1897)
+- If the question contains more than two parts the bot fails with an "ErrorValue: "so and so" is not in list"
 
 ## To Do:
 
 - Create a UI
 - Add support for Listening, Dictation and Speaking
+- Bot learns from mistakes
+- Faster
 
 ## Updates:
 
