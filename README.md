@@ -26,7 +26,7 @@ After downloading and running the chromedriver if you get a pop up saying this c
 
 - Added support for Writing
 - Clean up the code a little bit
-- Fixed some bug
+- Fixed some bugs
 
 ## Notes
 
