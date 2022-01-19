@@ -15,12 +15,12 @@
 ## Know Issues
 
 - After downloading and running the chromedriver if you get a pop up saying this could be dangerous or it won't run please follow the istructions on this website [website](https://dev.to/ruthmoog/dealing-with-error-chromedriver-cannot-be-opened-because-the-developer-cannot-be-verified-1897)
-- If the question contains more than two parts the bot fails with an "ErrorValue: "so and so" is not in list"
 
 ## To Do:
 
 - Create a UI
 - Add support for Listening, Dictation and Speaking
+- Add Support for different type of questions such as Science, Math, English, Spelling
 - Bot learns from mistakes
 - Faster
 
@@ -31,6 +31,13 @@
 - Added support for Writing
 - Clean up the code a little bit
 - Fixed some bugs
+
+##### 20/01/22:
+
+- Working on support for spelling lists
+- Fixed login bug where sometime you would recieve a NoSuchElementException error
+- Fixed issue with setting questions to infinite if there are no options above it
+- Contains some incomplete code
 
 ## Notes
 
