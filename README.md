@@ -23,7 +23,8 @@
 - Add support for Listening, Dictation and Speaking
 - Add Support for different type of questions such as Science, Math, English
 - Faster
-- Make it undetectable
+- Make it undetectable by bot detection
+- Different modes such as Automatic, Helper mode
 
 ## Updates:
 
@@ -35,7 +36,6 @@
 
 ##### 20/01/22:
 
-- Working on support for spelling lists
 - Fixed login bug where sometime you would recieve a NoSuchElementException error
 - Fixed issue with setting questions to infinite if there are no options above it
 - Bot will now learn from past mistake
