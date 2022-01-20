@@ -15,14 +15,15 @@
 ## Know Issues
 
 - After downloading and running the chromedriver if you get a pop up saying this could be dangerous or it won't run please follow the istructions on this website [website](https://dev.to/ruthmoog/dealing-with-error-chromedriver-cannot-be-opened-because-the-developer-cannot-be-verified-1897)
+- The bot sometimes doesn't grab all the questions due to selenium not being able to find them
 
 ## To Do:
 
 - Create a UI
 - Add support for Listening, Dictation and Speaking
-- Add Support for different type of questions such as Science, Math, English, Spelling
-- Bot learns from mistakes
+- Add Support for different type of questions such as Science, Math, English
 - Faster
+- Make it undetectable
 
 ## Updates:
 
@@ -37,7 +38,8 @@
 - Working on support for spelling lists
 - Fixed login bug where sometime you would recieve a NoSuchElementException error
 - Fixed issue with setting questions to infinite if there are no options above it
-- Contains some incomplete code
+- Bot will now learn from past mistake
+- Support for english spelling
 
 ## Notes
 
