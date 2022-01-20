@@ -92,6 +92,8 @@ def one_page(i1, readOrWrite):
                 f'2]/div[4]/div[1]/div[1]/div[{i1}]/div[1]/div[1]').get_attribute(
                 'textContent').strip()
 
+            # When doing spelling questions have a double space added on the front page but not during questioning
+            question = " ".join(question.split())
 
             # If there is a ; the question delete it and everything before it as EP Bot doesn't read this properly
             for x in question:
@@ -102,15 +104,15 @@ def one_page(i1, readOrWrite):
                     question = question
 
             #When doing spelling questions have a double space added on the front page but not during questioning
-            while '  ' in question:
-                question = question.replace('  ', ' ')
-                print(question)
-
 
             answer = driver.find_element_by_xpath(
                 f'/html/body/main/div[3]/div/student-app-wrapper/div[1]/div[2]/div/ui-view/div/div[2]/div/div['
                 f'2]/div[4]/div[1]/div[1]/div[{i1}]/div[1]/div[2]').get_attribute(
                 'textContent').strip()
+
+            # When doing spelling questions have a double space added on the front page but not during questioning
+            answer = " ".join(answer.split())
+
             print(question)
             print(answer)
 
@@ -151,14 +153,16 @@ def more_than_one_page(i1, a1, pages, readOrWrite):
                     question = question
 
             # When doing spelling questions have a double space added on the front page but not during questioning
-            while '  ' in question:
-                question = question.replace('  ', ' ')
-                print(question)
+            question = " ".join(question.split())
+
 
             answer = driver.find_element_by_xpath(
                 f'/html/body/main/div[3]/div/student-app-wrapper/div[1]/div[2]/div/ui-view/div/div[2]/div/div['
                 f'2]/div[4]/div[1]/div[1]/div[{i1}]/div[1]/div[2]').get_attribute(
                 'textContent').strip()
+
+            # When doing spelling questions have a double space added on the front page but not during questioning
+            answer = " ".join(answer.split())
 
             if readOrWrite == 2:
                 for b in answer:
@@ -191,63 +195,104 @@ def start():
     driver.find_element_by_id("start-button-main").click()
     time.sleep(2)
 
+#If the answer is wrong this will add it to the list
+def wrong_answer(readOrWrite):
+    question = driver.find_element_by_xpath('/html/body/main/div[3]/div/student-app-wrapper/div[1]/div[2]/div[1]/div/div/div[1]/table/tbody/tr[1]/td[2]').text
+    for x in question:
+        if x == ";":
+            sep = ';'
+            question = question.split(sep, 1)[1].strip()
+        else:
+            question = question
+    question = " ".join(question.split())
+
+    answer = driver.find_element_by_xpath('/html/body/main/div[3]/div/student-app-wrapper/div[1]/div[2]/div[1]/div/div/div[1]/table/tbody/tr[2]/td[2]').text
+    # When doing spelling questions have a double space added on the front page but not during questioning
+    answer = " ".join(answer.split())
+    if readOrWrite == 2:
+        for b in answer:
+            if b == ";":
+                sep = ";"
+                answer = answer.split(sep, 1)[1].strip()
+            else:
+                answer = answer
+    else:
+        pass
+
+    questions.append(question)
+    answers.append(answer)
+    time.sleep(1)
+    print("Question and Answer List Appended")
+    driver.find_element_by_xpath(
+        '/html/body/main/div[3]/div/student-app-wrapper/div[1]/div[2]/div[1]/div/div/div[2]/button[2]').click()
+
+
 
 def answer():
     g = 1
 
     while True:
-
         try:
 
             try:
-                # Reads questions
-                task_question = driver.find_element_by_xpath(
-                    '/html/body/main/div[3]/div/student-app-wrapper/div[1]/div[2]/div[1]/ui-view/div[1]/div[2]/div/div/div['
-                    '1]/div[2]/div/div[2]/div[2]/span[2]/span').text
 
-                if task_question == '':
-                    task_question = driver.find_element_by_xpath('/html/body/main/div[3]/div/student-app-wrapper/div[1]/div[2]/div/ui-view/div[1]/div[2]/div/div/div[1]/div[2]/div/div[2]/div[2]/span[2]').text
-                print(task_question)
                 try:
-                    # Finds answer to question
-                    task_answer_index = questions.index(task_question)
-                    task_answer = (answers[task_answer_index])
-                except:
-                    # Finds answer to question
-                    task_answer_index = answers.index(task_question)
-                    task_answer = (questions[task_answer_index])
-
-                # Removes everything in the answer after ; as EP bot does not need this
-                try:
-                    sep = ';'
-                    stripped = task_answer.split(sep, 1)[0]
-                    # Enters answer into text box
-                    enter_answer = driver.find_element_by_xpath(
+                    # Reads questions
+                    task_question = driver.find_element_by_xpath(
                         '/html/body/main/div[3]/div/student-app-wrapper/div[1]/div[2]/div[1]/ui-view/div[1]/div[2]/div/div/div['
-                        '2]/div[2]/game-lp-answer-input/div/div[2]/input')
-                    enter_answer.send_keys(stripped)
-                    enter_answer.send_keys(Keys.ENTER)
-                    prev_answer = stripped
-                    if read_write == 2:
-                        if driver.find_element_by_xpath('/html/body/main/div[3]/div/student-app-wrapper/div[1]/div[2]/div[1]/ui-view/div[1]/div[2]/div/div/div[''1]/div[2]/div/div[2]/div[2]/span[2]/span').text == task_question:
-                            enter_answer.send_keys(Keys.ENTER)
+                        '1]/div[2]/div/div[2]/div[2]/span[2]/span').text
+
+                    if task_question == '':
+                        task_question = driver.find_element_by_xpath('/html/body/main/div[3]/div/student-app-wrapper/div[1]/div[2]/div/ui-view/div[1]/div[2]/div/div/div[1]/div[2]/div/div[2]/div[2]/span[2]').text
+                    print(task_question)
+                    try:
+                        # Finds answer to question
+                        task_answer_index = questions.index(task_question)
+                        task_answer = (answers[task_answer_index])
+                    except:
+                        # Finds answer to question
+                        task_answer_index = answers.index(task_question)
+                        task_answer = (questions[task_answer_index])
+
+                    # Removes everything in the answer after ; as EP bot does not need this
+                    try:
+                        sep = ';'
+                        stripped = task_answer.split(sep, 1)[0]
+                        # Enters answer into text box
+                        enter_answer = driver.find_element_by_xpath(
+                            '/html/body/main/div[3]/div/student-app-wrapper/div[1]/div[2]/div[1]/ui-view/div[1]/div[2]/div/div/div['
+                            '2]/div[2]/game-lp-answer-input/div/div[2]/input')
+                        enter_answer.send_keys(stripped)
+                        enter_answer.send_keys(Keys.ENTER)
+                        prev_answer = stripped
+                        if read_write == 2:
+                            if driver.find_element_by_xpath('/html/body/main/div[3]/div/student-app-wrapper/div[1]/div[2]/div[1]/ui-view/div[1]/div[2]/div/div/div[''1]/div[2]/div/div[2]/div[2]/span[2]/span').text == task_question:
+                                enter_answer.send_keys(Keys.ENTER)
+                            else:
+                                pass
                         else:
                             pass
-                    else:
-                        pass
-                    time.sleep(3)
+                        time.sleep(3)
+                    except NoSuchElementException:
+                        print("All Questions Finished")
                 except NoSuchElementException:
-                    print("All Questions Finished")
-            except NoSuchElementException:
-                g += 1
-                if g != 5:
-                    answer()
-                else:
-                    break
-        except RecursionError:
-            driver.find_element_by_xpath('/html/body/main/div[3]/div/student-app-wrapper/div[1]/div[2]/div[1]/div/div/div[2]/button[2]').click()
-            time.sleep(1)
-            answer()
+                    g += 1
+                    if g != 5:
+                        answer()
+                    else:
+                        break
+            except RecursionError:
+                wrong_answer(read_write)
+                print(questions)
+                print(answers)
+                time.sleep(2)
+                answer()
+        except ValueError:
+            enter_answer = driver.find_element_by_xpath(
+                '/html/body/main/div[3]/div/student-app-wrapper/div[1]/div[2]/div[1]/ui-view/div[1]/div[2]/div/div/div['
+                '2]/div[2]/game-lp-answer-input/div/div[2]/input')
+            enter_answer.send_keys("I forgot")
+            enter_answer.send_keys(Keys.ENTER)
 
 def reading_or_writing():
     global read_write
@@ -282,3 +327,4 @@ def main(i1, a1):
 
 if __name__ == '__main__':
     main(i, a)
+
